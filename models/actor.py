@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String
 
 from config.database import Base
 
-class Actor():
+class Actor(Base):
 
     __tablename__ = "actor"
 
