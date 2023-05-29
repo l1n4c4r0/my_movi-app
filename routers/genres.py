@@ -8,7 +8,9 @@ from schemas.genres import Genres
 from config.database import Session 
 
 
+
 genres_router = APIRouter()
+
 
 # @genres_router.get('/genres_hello', tags=['genres'], status_code=200)
 # def get_genres_hello():
@@ -52,7 +54,4 @@ def delete_genre(id:int):
         return JSONResponse(content={"message":"genre don't gound","status_code":404})
     GenresService(db).delete_genre(id)
     return JSONResponse(content={"message":"genre delete successfully",'status_code':200}, status_code=200)
-    
-
-
-
+   

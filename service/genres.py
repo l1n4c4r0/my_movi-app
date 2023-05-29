@@ -7,8 +7,9 @@ class GenresService():
     def get_genres(self):
         result = self.db.query(GenresModel).all()
         return result
-    
+
     def create_genres(self,genres:GenresModel):
+
         new_genre = GenresModel(
             gen_title = genres.gen_title.upper()
         )
@@ -30,3 +31,4 @@ class GenresService():
         self.db.query(GenresModel).filter(GenresModel.id == id).delete()
         self.db.commit()
         return
+
