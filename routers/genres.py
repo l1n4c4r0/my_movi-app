@@ -34,7 +34,24 @@ def create_genres(genres:Genres):
     GenresService(db).create_genres(genres)
     return JSONResponse(content={"message":"genre created successfully",'status_code':201})
 
- 
+@genres_router.put('/genre{id}',tags=['genres'])
+def update_genre(id:int,genres:Genres):
+    db = Session()
+    result = GenresService(db).get_for_id(id)
+    if not result:
+        return JSONResponse(content={"message":"genre don't gound","status_code":404})
+    GenresService(db).update_genre(genres)
+    return JSONResponse(content={"message":"genre update successfully",'status_code':202}, status_code=200)
+
+
+@genres_router.delete('/genres{id}', tags=['genres'])
+def delete_genre(id:int):
+    db = Session()
+    result = GenresService(db).get_for_id(id)
+    if not result:
+        return JSONResponse(content={"message":"genre don't gound","status_code":404})
+    GenresService(db).delete_genre(id)
+    return JSONResponse(content={"message":"genre delete successfully",'status_code':200}, status_code=200)
     
 
 
