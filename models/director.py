@@ -5,8 +5,8 @@ from config.database import Base
 
 class Director(Base):
     
-    tablename = "director"
+    __tablename__ = "director"
     
-id = Column( Integer , primary_Key= True)
-dir_fname = Column(String)
-dir_lmane = Column(String)
+    id = Column(Integer,primary_key = True)
+    dir_fname = Column(String)
+    dir_lname = Column(String)
