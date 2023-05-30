@@ -10,7 +10,7 @@ class ReviewerService:
         return result
 
     def create_reviewer(self, reviewer: ReviewerModel):
-        new_reviewe = ReviewerModel(gen_title=reviewer.gen_title.upper())
+        new_reviewe = ReviewerModel(rev_name=reviewer.rev_name.upper())
         self.db.add(new_reviewe)
         self.db.commit()
         self.db.refresh
@@ -20,11 +20,11 @@ class ReviewerService:
         result = self.db.query(ReviewerModel).filter(ReviewerModel.id == id).first()
         return result
 
-    def update_reviewe(self, data: ReviewerModel):
+    def update_reviewe(self, data:ReviewerModel):
         reviewe = (
             self.db.query(ReviewerModel).filter(ReviewerModel.id == data.id).first()
         )
-        reviewe.gen_title = data.gen_title
+        reviewe.rev_name = data.rev_name
         self.db.commit()
         return
 

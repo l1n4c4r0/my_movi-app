@@ -1,4 +1,4 @@
--from fastapi import APIRouter, Path, Query
+from fastapi import APIRouter, Path, Query
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.encoders import jsonable_encoder
 
@@ -18,13 +18,6 @@ def get_reviewer():
     return JSONResponse(content=jsonable_encoder(result), status_code=200)
 
 
-@reviewer_router.get("/reviewer_for_id", tags=["reviewer"], status_code=200)
-def get_reviewer_for_id(id: int):
-    db = Session()
-    result = ReviewerService(db).get_for_id(id)
-    return JSONResponse(content=jsonable_encoder(result), status_code=200)
-
-
 @reviewer_router.post("/reviewer", tags=["reviewer"], status_code=201)
 def create_reviewer(reviewer: Reviewer):
     db = Session()
@@ -32,6 +25,12 @@ def create_reviewer(reviewer: Reviewer):
     return JSONResponse(
         content={"message": "Reviewe created successfully", "status_code": 201}
     )
+
+@reviewer_router.get('/routers_for_id', tags=['reviewer'], status_code=200)
+def get_reviewe_for_id(id:int):
+    db = Session()
+    result = ReviewerService(db).get_for_id(id)
+    return JSONResponse(content=jsonable_encoder(result), status_code=200)
 
 
 @reviewer_router.put("/reviewe{id}", tags=["reviewer"])
