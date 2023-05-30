@@ -9,14 +9,16 @@ class GenresService():
         return result
 
     def create_genres(self,genres:GenresModel):
-
+        
         new_genre = GenresModel(
+            id = genres.id,
             gen_title = genres.gen_title.upper()
         )
         self.db.add(new_genre)
         self.db.commit()
         self.db.refresh
         return
+    
     def get_for_id(self,id:int):
         result = self.db.query(GenresModel).filter(GenresModel.id == id).first()
         return result
