@@ -6,8 +6,8 @@ class Rating(BaseModel):
         id : Optional[int] = None
         mov_id : int = Field(ge=1, description="foreing key of the movie ")
         rev_id : int = Field(ge=1, description="foreing key of reviewer")
-        rev_stars_id : int = Field(ge=1, description="foreign key of the number of stars")
-        num_o_ratings_id : int = Field(ge=1, description="numbers and ratings")
+        rev_stars: int = Field(ge=1, description="foreign key of the number of stars")
+        num_o_ratings : int = Field(ge=1, description="numbers and ratings")
 
 
         class Config:
