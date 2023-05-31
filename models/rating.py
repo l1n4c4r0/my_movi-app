@@ -9,6 +9,7 @@ class Rating(Base):
     
 
 id = Column(Integer, primary_key = True)
+mov_id = Column( Integer , ForeingKey = ("mov_id"))
 rev_id = Column( Integer , ForeingKey = ("rev_id"))
-rev_starts = Column(Integer, Foreingkey =("rev_starts"))
-num_o_ratings = Column(Integer, Foreingkey =("num_o_ratings"))
+rev_stars = Column(Integer)
+num_o_ratings = Column(Integer)
