@@ -28,6 +28,8 @@ app.include_router(genres_router)
 app.include_router(actors_router)
  main
 
+app.include_router(movie_cast_router)
+
 Base.metadata.create_all(bind=engine)
 
 
