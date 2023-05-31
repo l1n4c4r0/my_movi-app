@@ -10,3 +10,5 @@ class Movie_direction(Base):
     id = Column(Integer, ForeignKey("director._id")) 
     mov_id = Column(Integer, ForeignKey("mov._id") )
     #movie_id tiene que ser de la segundo data movies
+    
+    #new

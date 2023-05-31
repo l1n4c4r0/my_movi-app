@@ -35,3 +35,4 @@ def delete_movie_director(id: int, db: Session = Depends(get_db)):
     MovieDirectorService(db).delete_movie_director(id)
     return
 
+#new
