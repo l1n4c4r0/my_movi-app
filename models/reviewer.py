@@ -7,6 +7,5 @@ class Reviewer(Base):
     
     __tablename__ = "reviewer"
     
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key = True )
     rev_name = Column(String)
-    ratings = relationship("Rating", back_populates = "reviewer")
