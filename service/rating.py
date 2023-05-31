@@ -10,7 +10,10 @@ class RatingService():
     
     def create_rating(self, rating : RatingModel):
         new_rating = RatingModel(
-            movie_id = rating.mov_id
+            mov_id = rating.mov_id,
+            rev_id = rating.rev_id,
+            rev_stars = rating.rev_stars,
+            num_o_ratings = rating.num_o_ratings
         )
         self.db.add(new_rating)
         self.db.commit()
@@ -23,6 +26,11 @@ class RatingService():
     
     def update_rating(self,data:RatingModel):
         rating = self.db.query(RatingModel).filter(RatingModel.id == data.id).first()
-        rating.rating_title = data.rating_title
-        
+        rating.movie_id = data.movie_id
+        self.db.commit()
+        return
     
+    def delete_genre(self,id:int):
+        self.db.query(RatingModel).filter(RatingModel.id == id).delete()
+        self.db.commit()
+        return

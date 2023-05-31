@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String
-
+from sqlalchemy.orm import relationship
 from config.database import Base
 
 
@@ -9,3 +9,4 @@ class Reviewer(Base):
     
     id = Column(Integer, primary_key=True)
     rev_name = Column(String)
+    ratings = relationship("Rating", back_populates = "reviewer")
