@@ -10,3 +10,4 @@ class Actor(Base):
     act_fname = Column(String)
     act_lname = Column(String)
     act_gender = Column(String)
+
