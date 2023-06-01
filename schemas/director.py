@@ -9,9 +9,11 @@ class Director(BaseModel):
     
     class Config: 
         schema_extra = {
+            
             "example":{
                 "id":1,
                 "dir_fname":"Steven Spielberg",
                 "dir_lname":"Spielberg"
+                
             }
-        }
+         }
