@@ -1,17 +1,15 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
+from typing import Optional
 
-class MovieDirectorBase(BaseModel):
-    movie_id: int
-    director_id: int
+class MovieDirector(BaseModel):
+        id : Optional[int] = None
+        dir_id : int = Field(ge=1, description="llave foranea de director")
+        mov_id : int = Field(ge=1, description="id de la pelicula")
 
-class MovieDirectorCreate(MovieDirectorBase):
-    pass
-
-class MovieDirector(MovieDirectorBase):
-    id: int
-
-    class Config:
-        orm_mode = True
-
-
-#new
+        class Config:
+            schema_extra = {
+                "example":{
+                    "dir_id":2,
+                    "mov_id":3
+                }
+            }
